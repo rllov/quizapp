@@ -11,7 +11,6 @@ function Quiz() {
     if (Questions[currQuestion].answer == optionChosen) {
       setScore(score + 1);
     }
-    alert(score);
     setCurrQuestion(currQuestion + 1);
   };
 
@@ -23,7 +22,9 @@ function Quiz() {
   };
   return (
     <div className="Quiz">
-      <h1>{Questions[currQuestion].prompt}</h1>
+      <h1>
+        {currQuestion}. {Questions[currQuestion].prompt}
+      </h1>
       <div className="options">
         <button onClick={() => setOptionChosen("A")}>
           {Questions[currQuestion].optionA}
@@ -43,6 +44,9 @@ function Quiz() {
       ) : (
         <button onClick={nextQuestion}>Next Question</button>
       )}
+      <h1>
+        Score: {score}/{Questions.length}
+      </h1>
     </div>
   );
 }
